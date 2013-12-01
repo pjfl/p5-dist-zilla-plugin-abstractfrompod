@@ -1,0 +1,5 @@
+Revision history for Dist::Zilla::Plugin::AbstractFromPOD
+
+0.1.1     2013-12-01 23:43:12
+          - Added project files to master branch
+
