@@ -1,16 +1,39 @@
-# @(#)Ident: perl_module.pm 2013-08-06 17:03 pjf ;
+# @(#)Ident: AbstractFromPOD.pm 2013-12-02 21:20 pjf ;
 
 package Dist::Zilla::Plugin::AbstractFromPOD;
 
-use 5.01;
-use namespace::sweep;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use 5.008;
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 1 $ =~ /\d+/gmx );
 
-use Class::Usul::Constants;
-use Class::Usul::Functions  qw( throw );
-use Moo;
+use Moose;
+use English                 qw( -no_match_vars );
+use File::Spec::Functions   qw( catfile );
 
-extends q(Class::Usul::Programs);
+with 'Dist::Zilla::Role::BeforeBuild';
+
+sub before_build {
+   my $self  = shift;
+   my $name  = $self->zilla->name;
+   my $class = $name; $class =~ s{ [\-] }{::}gmx;
+   my $file  = $self->zilla->_main_module_override
+            || catfile( 'lib', split m{ [\-] }mx, "${name}.pm" );
+
+                     $file or die 'No main module specified';
+                  -f $file or die "Path ${file} does not exist or not a file";
+   open my $fh, '<', $file or die "File ${file} cannot open: ${OS_ERROR}";
+
+   my $content    = do { local $RS; <$fh> }; $fh->close;
+   my ($abstract) = $content
+      =~ m{ =head1 \s+ Name \s* [\n] \s* $class \s* [\-] \s* ([^\n]+) }imsx;
+
+   $abstract or die "File ${file} contains no abstract";
+   $self->zilla->abstract( $abstract );
+   return;
+}
+
+__PACKAGE__->meta->make_immutable;
+
+no Moose;
 
 1;
 
@@ -22,36 +45,44 @@ __END__
 
 =head1 Name
 
-Dist::Zilla::Plugin::AbstractFromPOD - One-line description of the modules purpose
+Dist::Zilla::Plugin::AbstractFromPOD - Case insensitive head1 POD matching for the Name attribute
 
 =head1 Synopsis
 
-   use Dist::Zilla::Plugin::AbstractFromPOD;
-   # Brief but working code examples
+   # In dist.ini
+   [AbstractFromPOD]
 
 =head1 Version
 
-This documents version v0.1.$Rev: 1 $ of L<Dist::Zilla::Plugin::AbstractFromPOD>
+This documents version v0.2.$Rev: 1 $ of L<Dist::Zilla::Plugin::AbstractFromPOD>
 
 =head1 Description
 
+Case insensitive head1 POD matching for the Name attribute
+
+L<Dist::Zilla> should do this by default but unfortunately it's pattern
+matching is case sensitive so this instead
+
 =head1 Configuration and Environment
 
-Defines the following attributes;
-
-=over 3
-
-=back
+Defines no attributes
 
 =head1 Subroutines/Methods
 
+=head2 before_build
+
+Read the main module and extract the abstract (case insensitive matching on
+the head1 Name POD directive)
+
 =head1 Diagnostics
+
+None
 
 =head1 Dependencies
 
 =over 3
 
-=item L<Class::Usul>
+=item L<Dist::Zilla::Role::BeforeBuild>
 
 =back
 
