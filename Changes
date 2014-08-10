@@ -1,5 +1,7 @@
 Revision history for Dist::Zilla::Plugin::AbstractFromPOD
 
+          - Removed Ident and VERSION lines
+
 0.2.1     2013-12-03 14:15:29
           - Released
 

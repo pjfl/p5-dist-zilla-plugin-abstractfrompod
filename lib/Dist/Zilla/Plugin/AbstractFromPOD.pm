@@ -1,9 +1,7 @@
-# @(#)Ident: AbstractFromPOD.pm 2013-12-02 21:20 pjf ;
-
 package Dist::Zilla::Plugin::AbstractFromPOD;
 
 use 5.008;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 2 $ =~ /\d+/gmx );
 
 use Moose;
 use English                 qw( -no_match_vars );
@@ -54,7 +52,7 @@ Dist::Zilla::Plugin::AbstractFromPOD - Case insensitive head1 POD matching for t
 
 =head1 Version
 
-This documents version v0.2.$Rev: 1 $ of L<Dist::Zilla::Plugin::AbstractFromPOD>
+This documents version v0.2.$Rev: 2 $ of L<Dist::Zilla::Plugin::AbstractFromPOD>
 
 =head1 Description
 
