@@ -14,7 +14,7 @@ Dist::Zilla::Plugin::AbstractFromPOD - Case insensitive head1 POD matching for t
 
 # Version
 
-This documents version v0.2.$Rev: 5 $ of [Dist::Zilla::Plugin::AbstractFromPOD](https://metacpan.org/pod/Dist::Zilla::Plugin::AbstractFromPOD)
+This documents version v0.3.$Rev: 1 $ of [Dist::Zilla::Plugin::AbstractFromPOD](https://metacpan.org/pod/Dist::Zilla::Plugin::AbstractFromPOD)
 
 # Description
 
