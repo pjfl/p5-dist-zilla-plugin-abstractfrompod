@@ -1,7 +1,7 @@
 package Dist::Zilla::Plugin::AbstractFromPOD;
 
 use 5.008;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 3 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 4 $ =~ /\d+/gmx );
 
 use Moose;
 use English                 qw( -no_match_vars );
@@ -43,7 +43,6 @@ __END__
 
 =begin html
 
-<a href="https://travis-ci.org/pjfl/p5-dist-zilla-plugin-abstractfrompod"><img src="https://travis-ci.org/pjfl/p5-dist-zilla-plugin-abstractfrompod.svg?branch=master" alt="Travis CI Badge"></a>
 <a href="http://badge.fury.io/pl/Dist-Zilla-Plugin-AbstractFromPOD"><img src="https://badge.fury.io/pl/Dist-Zilla-Plugin-AbstractFromPOD.svg" alt="CPAN Badge"></a>
 <a href="http://cpants.cpanauthors.org/dist/Dist-Zilla-Plugin-AbstractFromPOD"><img src="http://cpants.cpanauthors.org/dist/Dist-Zilla-Plugin-AbstractFromPOD.png" alt="Kwalitee Badge"></a>
 
@@ -60,7 +59,7 @@ Dist::Zilla::Plugin::AbstractFromPOD - Case insensitive head1 POD matching for t
 
 =head1 Version
 
-This documents version v0.2.$Rev: 3 $ of L<Dist::Zilla::Plugin::AbstractFromPOD>
+This documents version v0.2.$Rev: 4 $ of L<Dist::Zilla::Plugin::AbstractFromPOD>
 
 =head1 Description
 
