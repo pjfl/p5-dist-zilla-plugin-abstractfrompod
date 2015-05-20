@@ -1,5 +1,4 @@
 <div>
-    <a href="https://travis-ci.org/pjfl/p5-dist-zilla-plugin-abstractfrompod"><img src="https://travis-ci.org/pjfl/p5-dist-zilla-plugin-abstractfrompod.svg?branch=master" alt="Travis CI Badge"></a>
     <a href="http://badge.fury.io/pl/Dist-Zilla-Plugin-AbstractFromPOD"><img src="https://badge.fury.io/pl/Dist-Zilla-Plugin-AbstractFromPOD.svg" alt="CPAN Badge"></a>
     <a href="http://cpants.cpanauthors.org/dist/Dist-Zilla-Plugin-AbstractFromPOD"><img src="http://cpants.cpanauthors.org/dist/Dist-Zilla-Plugin-AbstractFromPOD.png" alt="Kwalitee Badge"></a>
 </div>
@@ -15,7 +14,7 @@ Dist::Zilla::Plugin::AbstractFromPOD - Case insensitive head1 POD matching for t
 
 # Version
 
-This documents version v0.2.$Rev: 3 $ of [Dist::Zilla::Plugin::AbstractFromPOD](https://metacpan.org/pod/Dist::Zilla::Plugin::AbstractFromPOD)
+This documents version v0.2.$Rev: 5 $ of [Dist::Zilla::Plugin::AbstractFromPOD](https://metacpan.org/pod/Dist::Zilla::Plugin::AbstractFromPOD)
 
 # Description
 
